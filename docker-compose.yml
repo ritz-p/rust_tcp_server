@@ -1,0 +1,11 @@
+version: "3.8"
+
+services:
+  rust:
+    container_name: tcp_server
+    build: .
+    tty: true
+    volumes:
+      - .:/workspace
+    ports:
+      - 4444:4444
