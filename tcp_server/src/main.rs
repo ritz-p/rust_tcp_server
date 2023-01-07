@@ -6,7 +6,6 @@ use std::env;
 use std::thread;
 use std::time::Duration;
 use tcp_server::ThreadPool;
-pub mod html_tags;
 pub mod constant;
 fn main() {
     dotenv().ok();
@@ -38,7 +37,8 @@ fn handle_connection(mut stream: TcpStream) {
         "HTTP/1.1 404 NOT FOUND\r\n\r\n"
     };
     // let mut file = File::open(filename).unwrap();
-    let contents = "asdfasdfadsfasfd";
+    let contents = constant::article_base::create_article_base();
+    println!("{}",contents);
     // file.read_to_string(&mut contents).unwrap();
     let response = format!("{}{}",status_line,contents);
     stream.write(response.as_bytes()).unwrap();

@@ -1,4 +1,4 @@
-use html_tags::Tag;
+use html_tags::html::Tag;
 
 pub const DOCTYPE: Tag = Tag{
     name: "!DOCTYPE "

@@ -17,7 +17,7 @@ impl SingleTag for Tag<'_>{
     fn get_tag(&self) -> String {
         self.name.to_string()
     }
-    fn bind(&self,content: String,use_end_slash: bool){
+    fn bind(&self,content: String,use_end_slash: bool) -> String{
         let mut ret = String::from("<") + &self.name + &content;
         if use_end_slash{
             ret = ret + &String::from("/>")
