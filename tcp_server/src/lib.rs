@@ -2,9 +2,7 @@ use std::thread;
 use std::sync::mpsc;
 use std::sync::Arc;
 use std::sync::Mutex;
-
-use html_tags::html;
-pub mod html_tags;
+mod constant;
 pub struct ThreadPool{
     workers: Vec<Worker>,
     sender: mpsc::Sender<Message>,

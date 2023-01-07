@@ -4,6 +4,7 @@ pub struct Tag<'a>{
 
 pub trait SingleTag{
     fn get_tag(&self) -> String;
+    fn bind(&self,content:String,use_end_slash:bool) -> String;
 }
 
 pub trait PairTag{
@@ -15,6 +16,15 @@ pub trait PairTag{
 impl SingleTag for Tag<'_>{
     fn get_tag(&self) -> String {
         self.name.to_string()
+    }
+    fn bind(&self,content: String,use_end_slash: bool){
+        let mut ret = String::from("<") + &self.name + &content;
+        if use_end_slash{
+            ret = ret + &String::from("/>")
+        }else{
+            ret = ret + &String::from(">")
+        }
+        ret
     }
 }
 
