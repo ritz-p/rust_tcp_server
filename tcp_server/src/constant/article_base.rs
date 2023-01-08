@@ -1,7 +1,6 @@
 use html_tags::html::{PairTag, SingleTag};
-// use const_tags;
-
 use super::const_tags::*;
+
 pub fn create_article_base() -> String{
     PairTag::bind(&HTML,
         PairTag::bind(&HEAD,
