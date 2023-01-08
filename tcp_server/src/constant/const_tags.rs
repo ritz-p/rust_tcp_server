@@ -30,3 +30,6 @@ pub const P: Tag = Tag{
 pub const BR: Tag = Tag{
     name: "br"
 };
+pub const TABLE: Tag = Tag{
+    name: "table"
+};
