@@ -84,6 +84,7 @@ impl TableTag for Tag<'_>{
             for body in &content[i]{
                 body_td += &self.get_td(body.to_string());
             }
+            body_td = self.get_tr(body_td);
         }
         self.get_table(self.get_head(head_tr)+&self.get_body(body_td))
     }

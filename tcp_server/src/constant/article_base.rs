@@ -2,7 +2,7 @@ use html_tags::html::{PairTag, SingleTag, TableTag};
 use super::const_tags::*;
 
 pub fn create_article_base() -> String{
-    let mut test:Vec<Vec<&str>> = vec![vec!["test","test","test"],["1","2","3"].to_vec()];
+    let test:Vec<Vec<&str>> = vec![vec!["test","test","test"],["1","2","3"].to_vec(),["adf","daf","adsfasd"].to_vec()];
     PairTag::bind(&HTML,
         PairTag::bind(&HEAD,
             SingleTag::bind(&META," charset=utf-8".to_string(),false) + 

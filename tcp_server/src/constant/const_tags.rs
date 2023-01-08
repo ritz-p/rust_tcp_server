@@ -33,3 +33,21 @@ pub const BR: Tag = Tag{
 pub const TABLE: Tag = Tag{
     name: "table"
 };
+pub const THEAD: Tag = Tag{
+    name: "thead"
+};
+pub const TBODY: Tag = Tag{
+    name: "tbody"
+};
+pub const TR: Tag = Tag{
+    name: "tr"
+};
+pub const TH: Tag = Tag{
+    name: "th"
+};
+pub const TD: Tag = Tag{
+    name: "td"
+};
+pub const CAPTION: Tag = Tag{
+    name: "caption"
+};
