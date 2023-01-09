@@ -13,16 +13,6 @@ pub trait PairTag{
     fn bind(&self,content: String) -> String;
 }
 
-pub trait TableTag{
-    fn get_table(&self,content:String) -> String;
-    fn get_head(&self,content:String) -> String;
-    fn get_body(&self,content:String) -> String;
-    fn get_tr(&self,content:String) -> String;
-    fn get_th(&self,content:String) -> String;
-    fn get_td(&self,content:String) -> String;
-    fn bind(&self,content: Vec<Vec<&str>>)->String;
-}
-
 impl SingleTag for Tag<'_>{
     fn get_tag(&self) -> String {
         self.name.to_string()

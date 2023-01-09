@@ -7,6 +7,7 @@ edition = "2021"
 
 [dependencies]
 dotenv = "0.15.0"
-html_tags = { path = "../html_tags"}
-article_base = { path = "../html_parts/article_base"}
+http_status = { path = "../http_status" }
+html_tags = { path = "../html_tags" }
+article_base = { path = "../html_parts/article_base" }
 table_base = { path = "../html_parts/table_base" }

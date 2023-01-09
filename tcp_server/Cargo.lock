@@ -29,6 +29,10 @@ name = "html_tags"
 version = "0.1.0"
 
 [[package]]
+name = "http_status"
+version = "0.1.0"
+
+[[package]]
 name = "table_base"
 version = "0.1.0"
 dependencies = [
@@ -43,5 +47,6 @@ dependencies = [
  "article_base",
  "dotenv",
  "html_tags",
+ "http_status",
  "table_base",
 ]

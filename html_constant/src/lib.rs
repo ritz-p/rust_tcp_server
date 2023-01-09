@@ -51,3 +51,6 @@ pub const TD: Tag = Tag{
 pub const CAPTION: Tag = Tag{
     name: "caption"
 };
+pub const STYLE: Tag = Tag{
+    name: "style"
+};
