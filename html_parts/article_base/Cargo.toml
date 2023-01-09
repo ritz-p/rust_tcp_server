@@ -1,0 +1,11 @@
+[package]
+name = "article_base"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+html_tags = { path = "../../html_tags" }
+html_constant = { path = "../../html_constant" }
+table_base = { path = "../table_base" }
