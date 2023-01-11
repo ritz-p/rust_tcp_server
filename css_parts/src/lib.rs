@@ -1,0 +1,1 @@
+pub mod monochrome_vertical_table_css;

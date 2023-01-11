@@ -6,9 +6,22 @@ version = 3
 name = "article_base"
 version = "0.1.0"
 dependencies = [
+ "css_parts",
  "html_constant",
  "html_tags",
  "table_base",
+]
+
+[[package]]
+name = "css_constant"
+version = "0.1.0"
+
+[[package]]
+name = "css_parts"
+version = "0.1.0"
+dependencies = [
+ "css_constant",
+ "html_constant",
 ]
 
 [[package]]
@@ -45,6 +58,7 @@ name = "tcp_server"
 version = "0.1.0"
 dependencies = [
  "article_base",
+ "css_parts",
  "dotenv",
  "html_tags",
  "http_status",
