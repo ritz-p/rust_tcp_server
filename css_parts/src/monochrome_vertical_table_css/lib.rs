@@ -3,9 +3,10 @@ use css_constant::create_css;
 
 pub fn create_monochrome_vertical_table_css() -> String{
     let mut table:Vec<(&str,&str)> = vec![];
-    table.push(("width","100%"));
+    table.push(("width","90%"));
     table.push(("border","solid 2px black"));
     table.push(("border-collapse","collapse"));
+    table.push(("margin","100px"));
 
     let mut th: Vec<(&str,&str)> = vec![];
     th.push(("color","#fff"));

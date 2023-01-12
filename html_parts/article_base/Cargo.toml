@@ -9,4 +9,5 @@ edition = "2021"
 html_tags = { path = "../../html_tags" }
 html_constant = { path = "../../html_constant" }
 table_base = { path = "../table_base" }
+title_base = { path = "../title_base" }
 css_parts = { path = "../../css_parts" }

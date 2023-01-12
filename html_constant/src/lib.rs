@@ -3,6 +3,15 @@ use html_tags::html::Tag;
 pub const DOCTYPE: Tag = Tag{
     name: "!DOCTYPE "
 };
+pub const H1: Tag = Tag{
+    name: "H1"
+};
+pub const H2: Tag = Tag{
+    name: "H2"
+};
+pub const H3: Tag = Tag{
+    name: "H3"
+};
 pub const HTML: Tag = Tag{
     name: "html",
 };
@@ -53,4 +62,10 @@ pub const CAPTION: Tag = Tag{
 };
 pub const STYLE: Tag = Tag{
     name: "style"
+};
+pub const LI: Tag = Tag{
+    name: "li"
+};
+pub const UL: Tag = Tag{
+    name: "ul"
 };
