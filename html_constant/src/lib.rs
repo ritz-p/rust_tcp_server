@@ -1,8 +1,5 @@
 use html_tags::tag::Tag;
 
-pub const DOCTYPE: Tag = Tag{
-    name: "!DOCTYPE "
-};
 pub const H1: Tag = Tag{
     name: "h1"
 };
@@ -29,9 +26,6 @@ pub const BODY: Tag = Tag{
 };
 pub const DIV: Tag = Tag{
     name: "div"
-};
-pub const SPAN: Tag = Tag{
-    name: "span"
 };
 pub const P: Tag = Tag{
     name: "p"
