@@ -1,4 +1,4 @@
-use html_tags::html::{PairTag};
+use html_tags::tag::{PairTag};
 use html_constant::*;
 
 pub fn create_title_base(title_content: &str,headlines: Vec<&str>) -> String{

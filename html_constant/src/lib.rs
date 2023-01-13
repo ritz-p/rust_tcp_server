@@ -1,16 +1,16 @@
-use html_tags::html::Tag;
+use html_tags::tag::Tag;
 
 pub const DOCTYPE: Tag = Tag{
     name: "!DOCTYPE "
 };
 pub const H1: Tag = Tag{
-    name: "H1"
+    name: "h1"
 };
 pub const H2: Tag = Tag{
-    name: "H2"
+    name: "h2"
 };
 pub const H3: Tag = Tag{
-    name: "H3"
+    name: "h3"
 };
 pub const HTML: Tag = Tag{
     name: "html",

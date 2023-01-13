@@ -1,4 +1,4 @@
-use html_tags::html::{PairTag, SingleTag};
+use html_tags::tag::{PairTag, SingleTag};
 use html_constant::*;
 use table_base::diagonal_table;
 use table_base::vertical_table;
@@ -16,7 +16,7 @@ pub fn create_article_base() -> String{
     PairTag::bind(&HTML,
         PairTag::bind(&HEAD,
             SingleTag::bind(&META," charset=utf-8".to_string(),false) + 
-            &PairTag::bind(&TITLE,"Test!!!!!!".to_string()) +
+            &PairTag::bind(&TITLE,title.to_string() + " - rust blog") +
             &PairTag::bind(&STYLE,
                 create_monochrome_vertical_table_css() +
                 &create_monochrome_title_css()
