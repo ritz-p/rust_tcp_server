@@ -28,38 +28,3 @@ pub enum GlobalProperty{
     Title,
     Translate,
 }
-
-impl GlobalProperty{
-    fn as_str(&self) -> &'static str{
-        match self{
-            GlobalProperty::AccessKey => "accesskey",
-            GlobalProperty::AutoCapitalise => "autocapitalise",
-            GlobalProperty::AutoFocus => "autofocus",
-            GlobalProperty::Class => "class",
-            GlobalProperty::ContendedTable => "contendedtable",
-            GlobalProperty::Data => "data",
-            GlobalProperty::Dir => "dir",
-            GlobalProperty::Draggable => "draggable",
-            GlobalProperty::EnterKeyHint => "enterkeyhint",
-            GlobalProperty::ExportParts => "exportparts",
-            GlobalProperty::Hidden => "hidden",
-            GlobalProperty::Id => "id",
-            GlobalProperty::InputMode => "inputmode",
-            GlobalProperty::Is => "is",
-            GlobalProperty::ItemProp => "itemprop",
-            GlobalProperty::ItemRef => "itemref",
-            GlobalProperty::ItemScope => "iterscope",
-            GlobalProperty::ItemType => "itemtype",
-            GlobalProperty::Lang => "lang",
-            GlobalProperty::Nonce => "nonce",
-            GlobalProperty::Part => "part",
-            GlobalProperty::Role => "role",
-            GlobalProperty::Slot => "slot",
-            GlobalProperty::SpellCheck => "spellcheck",
-            GlobalProperty::Style => "style",
-            GlobalProperty::TabIndex => "tabindex",
-            GlobalProperty::Title => "title",
-            GlobalProperty::Translate => "translate",
-        }
-    }
-}
