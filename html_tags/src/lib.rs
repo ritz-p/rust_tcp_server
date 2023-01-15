@@ -93,73 +93,73 @@ pub struct HtmlProperties<'a>{
 }
 
 pub struct HeadProperties<'a>{
-    global_properties: Vec<(html_type::global::GlobalProperty,&'a str)>
+    pub global_properties: Vec<(html_type::global::GlobalProperty,&'a str)>
 }
 
 pub struct MetaProperties<'a>{
-    global_properties: Vec<(html_type::meta::MetaProperty,&'a str)>
+    pub global_properties: Vec<(html_type::meta::MetaProperty,&'a str)>
 }
 
 pub struct BodyProperties<'a>{
-    body_properties: Vec<(html_type::body::BodyProperty,&'a str)>,
-    global_properties: Vec<(html_type::global::GlobalProperty,&'a str)>
+    pub body_properties: Vec<(html_type::body::BodyProperty,&'a str)>,
+    pub global_properties: Vec<(html_type::global::GlobalProperty,&'a str)>
 }
 
 pub struct TitleProperties<'a>{
-    global_properties: Vec<(html_type::global::GlobalProperty,&'a str)>
+    pub global_properties: Vec<(html_type::global::GlobalProperty,&'a str)>
 }
 
 pub struct DivProperties<'a>{
-    global_properties: Vec<(html_type::global::GlobalProperty,&'a str)>
+    pub global_properties: Vec<(html_type::global::GlobalProperty,&'a str)>
 }
 
 pub struct BRProperties<'a>{
-    global_properties: Vec<(html_type::global::GlobalProperty,&'a str)>
+    pub global_properties: Vec<(html_type::global::GlobalProperty,&'a str)>
 }
 
 pub struct PProperties<'a>{
-    global_properties: Vec<(html_type::global::GlobalProperty,&'a str)>
+    pub global_properties: Vec<(html_type::global::GlobalProperty,&'a str)>
 }
 
 pub struct TableProperties<'a>{
-    global_properties: Vec<(html_type::global::GlobalProperty,&'a str)>
+    pub global_properties: Vec<(html_type::global::GlobalProperty,&'a str)>
 }
 
 pub struct TBodyProperties<'a>{
-    global_properties: Vec<(html_type::global::GlobalProperty,&'a str)>
+    pub global_properties: Vec<(html_type::global::GlobalProperty,&'a str)>
 }
 
 pub struct THeadProperties<'a>{
-    global_properties: Vec<(html_type::global::GlobalProperty,&'a str)>
+    pub global_properties: Vec<(html_type::global::GlobalProperty,&'a str)>
 }
 
 pub struct TFootProperties<'a>{
-    global_properties: Vec<(html_type::global::GlobalProperty,&'a str)>
+    pub global_properties: Vec<(html_type::global::GlobalProperty,&'a str)>
 }
 
 pub struct TRProperties<'a>{
-    global_properties: Vec<(html_type::global::GlobalProperty,&'a str)>
+    pub global_properties: Vec<(html_type::global::GlobalProperty,&'a str)>
 }
 
 pub struct THProperties<'a>{
-    global_properties: Vec<(html_type::global::GlobalProperty,&'a str)>,
-    th_properties: Vec<(html_type::th::TH,&'a str)>
+    pub global_properties: Vec<(html_type::global::GlobalProperty,&'a str)>,
+    pub th_properties: Vec<(html_type::th::TH,&'a str)>
 }
 
 pub struct TDProperties<'a>{
-    global_properties: Vec<(html_type::global::GlobalProperty,&'a str)>,
-    td_properties: Vec<(html_type::td::TD,&'a str)>
+    pub global_properties: Vec<(html_type::global::GlobalProperty,&'a str)>,
+    pub td_properties: Vec<(html_type::td::TD,&'a str)>
 }
 pub struct LIProperties<'a>{
-    global_properties: Vec<(html_type::global::GlobalProperty,&'a str)>,
-    li_properties: Vec<(html_type::li::LI,&'a str)>,
+    pub global_properties: Vec<(html_type::global::GlobalProperty,&'a str)>,
+    pub li_properties: Vec<(html_type::li::LI,&'a str)>,
 }
 
 pub struct ULProperties<'a>{
-    global_properties: Vec<(html_type::global::GlobalProperty,&'a str)>
+    pub global_properties: Vec<(html_type::global::GlobalProperty,&'a str)>
 }
 
 pub struct OLProperties<'a>{
-    global_properties: Vec<(html_type::global::GlobalProperty,&'a str)>,
-    ol_properties: Vec<(html_type::ol::OL,&'a str)>
+    pub global_properties: Vec<(html_type::global::GlobalProperty,&'a str)>,
+    pub ol_properties: Vec<(html_type::ol::OL,&'a str)>
 }

@@ -63,3 +63,6 @@ pub const LI: Tag = Tag{
 pub const UL: Tag = Tag{
     name: "ul"
 };
+pub const LINK: Tag = Tag{
+    name: "link"
+};
