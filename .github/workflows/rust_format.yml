@@ -23,7 +23,7 @@ jobs:
         uses: actions-rs/cargo@v1
         with:
           command: fmt
-          cwd: ./tcp_server
+          args: --manifest-path tcp_server/Cargo.toml
       - name: create new branch
         id: create_branch
         env:
