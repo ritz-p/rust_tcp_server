@@ -1,8 +1,10 @@
+use html_type::PropertyInfo;
+
 pub mod tag;
 pub mod html_type;
-
+pub mod css_type;
 pub struct Tag<'a>{
-    variable: TagName<'a>,
+    pub variable: TagName<'a>,
 }
 
 pub trait SingleTag{
@@ -16,12 +18,16 @@ pub trait PairTag{
     fn bind(&self,content: String) -> String;
 }
 
+pub trait Properties{
+    fn get_properties(&self) -> String;
+}
+
 impl SingleTag for Tag<'_>{
     fn get_tag(&self) -> String {
         self.variable.get_tag_name().to_owned()
     }
-    fn bind(&self,content: String,use_end_slash: bool) -> String{
-        let mut ret = String::from("<") + &self.variable.get_tag_name().to_owned() + &content;
+    fn bind(&self,property: String,use_end_slash: bool) -> String{
+        let mut ret = String::from("<") + &self.variable.get_tag_name().to_owned() + &property;
         if use_end_slash{
             ret = ret + &String::from("/>")
         }else{
@@ -92,12 +98,49 @@ pub struct HtmlProperties<'a>{
     pub global_properties: Vec<(html_type::global::GlobalProperty,&'a str)>
 }
 
+impl Properties for HtmlProperties<'_>{
+    fn get_properties(&self) -> String{
+        let mut res = "".to_owned();
+        for (key,value) in &self.html_properties{
+            res += &(" ".to_owned() + key.as_str() + value);
+        }
+        for (key,value) in &self.global_properties{
+            res += &(" ".to_owned() + key.as_str() + value);
+        }
+        res
+    }
+}
+
 pub struct HeadProperties<'a>{
     pub global_properties: Vec<(html_type::global::GlobalProperty,&'a str)>
 }
 
+impl Properties for HeadProperties<'_>{
+    fn get_properties(&self) -> String {
+        let mut res = "".to_owned();
+        for (key,value) in &self.global_properties{
+            res += &(" ".to_owned() + key.as_str() + value);
+        }
+        res
+    }
+}
+
 pub struct MetaProperties<'a>{
-    pub global_properties: Vec<(html_type::meta::MetaProperty,&'a str)>
+    pub meta_properties: Vec<(html_type::meta::MetaProperty,&'a str)>,
+    pub global_properties: Vec<(html_type::global::GlobalProperty,&'a str)>
+}
+
+impl Properties for MetaProperties<'_>{
+    fn get_properties(&self) -> String {
+        let mut res = "".to_owned();
+        for (key,value) in &self.meta_properties{
+            res += &(" ".to_owned() + key.as_str() + value);
+        }
+        for (key,value) in &self.global_properties{
+            res += &(" ".to_owned() + key.as_str() + value);
+        }
+        res
+    }
 }
 
 pub struct BodyProperties<'a>{
@@ -105,8 +148,31 @@ pub struct BodyProperties<'a>{
     pub global_properties: Vec<(html_type::global::GlobalProperty,&'a str)>
 }
 
+impl Properties for BodyProperties<'_>{
+    fn get_properties(&self) -> String {
+        let mut res = "".to_owned();
+        for (key,value) in &self.body_properties{
+            res += &(" ".to_owned() + key.as_str() + value);
+        }
+        for (key,value) in &self.global_properties{
+            res += &(" ".to_owned() + key.as_str() + value);
+        }
+        res
+    }
+}
+
 pub struct TitleProperties<'a>{
     pub global_properties: Vec<(html_type::global::GlobalProperty,&'a str)>
+}
+
+impl Properties for TitleProperties<'_>{
+    fn get_properties(&self) -> String {
+        let mut res = "".to_owned();
+        for (key,value) in &self.global_properties{
+            res += &(" ".to_owned() + key.as_str() + value);
+        }
+        res
+    }
 }
 
 pub struct DivProperties<'a>{
