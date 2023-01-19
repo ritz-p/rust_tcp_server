@@ -22,9 +22,9 @@ jobs:
           toolchain: 1.66.1
       - name: format
         uses: actions-rs/cargo@v1
+        working-directory: ./tcp_server
         with:
           command: fmt
-        working-directory: tcp_server
       - name: create new branch
         id: create_branch
         env:
