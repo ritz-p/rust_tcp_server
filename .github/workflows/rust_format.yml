@@ -15,16 +15,15 @@ jobs:
         uses: actions/checkout@v3
         with:
           ref: main
-
       - name: set rust version
         uses: actions-rs/toolchain@v1
         with:
           toolchain: 1.66.1
       - name: format
         uses: actions-rs/cargo@v1
-        working-directory: ./tcp_server
         with:
           command: fmt
+          cwd: ./tcp_server
       - name: create new branch
         id: create_branch
         env:
