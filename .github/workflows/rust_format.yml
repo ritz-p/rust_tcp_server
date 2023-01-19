@@ -1,0 +1,44 @@
+name: Rust Format
+on: 
+  push:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    env:
+      RUSTC_FORCE_INCREMENTAL: 1
+
+    steps:
+      - name: checkout main
+        uses: actions/checkout@v3
+        with:
+          ref: main
+
+      - name: set rust version
+        uses: actions-rs/toolchain@v1
+        with:
+          toolchain: 1.66.1
+      - name: format
+        uses: actions-rs/cargo@v1
+        with:
+          command: fmt
+        working-directory: tcp_server
+      - name: create new branch
+        id: create_branch
+        env:
+          TZ: Asia/Tokyo
+          GITHUB_TOKENS: ${{ secrets.GITHUB_TOKENS }}
+        run: |
+          DATE=`date +"%Y%m%d"`
+          BRANCH_NAME="auto/$DATE"
+          git checkout -b "$BRANCH_NAME"
+          git push origin "$BRANCH_NAME"
+          echo ::set-output name=branch_name::$BRANCH_NAME
+      - name: create pull request
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          BRANCH_NAME: ${{ steps.create_branch.outputs.branch_name }}
+        run: |
+          hub pull-request -m "auto format" -b main -h $BRANCH_NAME"
