@@ -1,4 +1,4 @@
-use html_type::PropertyInfo;
+use html_type::{PropertyInfo, html::HtmlProperty};
 
 pub mod tag;
 pub mod html_type;
@@ -72,6 +72,29 @@ impl TagName<'_>{
             TagName::OL(_) => "ol",
         }
     }
+    fn get_properties(&self) -> &str{
+        match self{
+            TagName::Html(_) => &Properties::get_properties(&self::HtmlProperties{ html_properties: todo!(), global_properties: todo!() }),
+            TagName::Head(_) => todo!(),
+            TagName::Meta(_) => todo!(),
+            TagName::Body(_) => todo!(),
+            TagName::Title(_) => todo!(),
+            TagName::Div(_) => todo!(),
+            TagName::P(_) => todo!(),
+            TagName::BR(_) => todo!(),
+            TagName::Table(_) => todo!(),
+            TagName::TBody(_) => todo!(),
+            TagName::THead(_) => todo!(),
+            TagName::TFoot(_) => todo!(),
+            TagName::TH(_) => todo!(),
+            TagName::TD(_) => todo!(),
+            TagName::TR(_) => todo!(),
+            TagName::LI(_) => todo!(),
+            TagName::UL(_) => todo!(),
+            TagName::OL(_) => todo!(),
+        }
+    }
+
 }
 pub enum TagName<'a>{
     Html(HtmlProperties<'a>),
@@ -179,53 +202,190 @@ pub struct DivProperties<'a>{
     pub global_properties: Vec<(html_type::global::GlobalProperty,&'a str)>
 }
 
+impl Properties for DivProperties<'_>{
+    fn get_properties(&self) -> String {
+        let mut res = "".to_owned();
+        for (key,value) in &self.global_properties{
+            res += &(" ".to_owned() + key.as_str() + value);
+        }
+        res
+    }
+}
 pub struct BRProperties<'a>{
     pub global_properties: Vec<(html_type::global::GlobalProperty,&'a str)>
+}
+
+impl Properties for BRProperties<'_> {
+    fn get_properties(&self) -> String {
+        let mut res = "".to_owned();
+        for (key,value) in &self.global_properties{
+            res += &(" ".to_owned() + key.as_str() + value);
+        }
+        res
+    }
 }
 
 pub struct PProperties<'a>{
     pub global_properties: Vec<(html_type::global::GlobalProperty,&'a str)>
 }
 
+impl Properties for PProperties<'_> {
+    fn get_properties(&self) -> String {
+        let mut res = "".to_owned();
+        for (key,value) in &self.global_properties{
+            res += &(" ".to_owned() + key.as_str() + value);
+        }
+        res
+    }
+}
 pub struct TableProperties<'a>{
     pub global_properties: Vec<(html_type::global::GlobalProperty,&'a str)>
+}
+
+impl Properties for TableProperties<'_> {
+    fn get_properties(&self) -> String {
+        let mut res = "".to_owned();
+        for (key,value) in &self.global_properties{
+            res += &(" ".to_owned() + key.as_str() + value);
+        }
+        res
+    }
 }
 
 pub struct TBodyProperties<'a>{
     pub global_properties: Vec<(html_type::global::GlobalProperty,&'a str)>
 }
 
+impl Properties for TBodyProperties<'_> {
+    fn get_properties(&self) -> String {
+        let mut res = "".to_owned();
+        for (key,value) in &self.global_properties{
+            res += &(" ".to_owned() + key.as_str() + value);
+        }
+        res
+    }
+}
 pub struct THeadProperties<'a>{
     pub global_properties: Vec<(html_type::global::GlobalProperty,&'a str)>
+}
+
+impl Properties for THeadProperties<'_> {
+    fn get_properties(&self) -> String {
+        let mut res = "".to_owned();
+        for (key,value) in &self.global_properties{
+            res += &(" ".to_owned() + key.as_str() + value);
+        }
+        res
+    }
 }
 
 pub struct TFootProperties<'a>{
     pub global_properties: Vec<(html_type::global::GlobalProperty,&'a str)>
 }
 
+impl Properties for TFootProperties<'_> {
+    fn get_properties(&self) -> String {
+        let mut res = "".to_owned();
+        for (key,value) in &self.global_properties{
+            res += &(" ".to_owned() + key.as_str() + value);
+        }
+        res
+    }
+}
+
 pub struct TRProperties<'a>{
     pub global_properties: Vec<(html_type::global::GlobalProperty,&'a str)>
 }
 
+impl Properties for TRProperties<'_> {
+    fn get_properties(&self) -> String {
+        let mut res = "".to_owned();
+        for (key,value) in &self.global_properties{
+            res += &(" ".to_owned() + key.as_str() + value);
+        }
+        res
+    }
+}
 pub struct THProperties<'a>{
     pub global_properties: Vec<(html_type::global::GlobalProperty,&'a str)>,
     pub th_properties: Vec<(html_type::th::TH,&'a str)>
+}
+
+impl Properties for THProperties<'_> {
+    fn get_properties(&self) -> String {
+        let mut res = "".to_owned();
+        for (key,value) in &self.global_properties{
+            res += &(" ".to_owned() + key.as_str() + value);
+        }
+        for (key,value) in &self.th_properties{
+            res += &(" ".to_owned() + key.as_str() + value);
+        }
+        res
+    }
 }
 
 pub struct TDProperties<'a>{
     pub global_properties: Vec<(html_type::global::GlobalProperty,&'a str)>,
     pub td_properties: Vec<(html_type::td::TD,&'a str)>
 }
+
+impl Properties for TDProperties<'_> {
+    fn get_properties(&self) -> String {
+        let mut res = "".to_owned();
+        for (key,value) in &self.global_properties{
+            res += &(" ".to_owned() + key.as_str() + value);
+        }
+        for (key,value) in &self.td_properties{
+            res += &(" ".to_owned() + key.as_str() + value);
+        }
+        res
+    }
+}
 pub struct LIProperties<'a>{
     pub global_properties: Vec<(html_type::global::GlobalProperty,&'a str)>,
     pub li_properties: Vec<(html_type::li::LI,&'a str)>,
 }
 
+impl Properties for LIProperties<'_> {
+    fn get_properties(&self) -> String {
+        let mut res = "".to_owned();
+        for (key,value) in &self.global_properties{
+            res += &(" ".to_owned() + key.as_str() + value);
+        }
+        for (key,value) in &self.li_properties{
+            res += &(" ".to_owned() + key.as_str() + value);
+        }
+        res
+    }
+}
 pub struct ULProperties<'a>{
     pub global_properties: Vec<(html_type::global::GlobalProperty,&'a str)>
+}
+
+impl Properties for ULProperties<'_> {
+    fn get_properties(&self) -> String {
+        let mut res = "".to_owned();
+        for (key,value) in &self.global_properties{
+            res += &(" ".to_owned() + key.as_str() + value);
+        }
+        res
+    }
 }
 
 pub struct OLProperties<'a>{
     pub global_properties: Vec<(html_type::global::GlobalProperty,&'a str)>,
     pub ol_properties: Vec<(html_type::ol::OL,&'a str)>
+}
+
+impl Properties for OLProperties<'_> {
+    fn get_properties(&self) -> String {
+        let mut res = "".to_owned();
+        for (key,value) in &self.global_properties{
+            res += &(" ".to_owned() + key.as_str() + value);
+        }
+        for (key,value) in &self.ol_properties{
+            res += &(" ".to_owned() + key.as_str() + value);
+        }
+        res
+    }
 }
