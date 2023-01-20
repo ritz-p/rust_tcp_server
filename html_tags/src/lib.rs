@@ -9,7 +9,7 @@ pub struct Tag<'a>{
 
 pub trait SingleTag{
     fn get_tag(&self) -> String;
-    fn bind(&self,content:String,use_end_slash:bool) -> String;
+    fn bind(&self,use_end_slash:bool) -> String;
 }
 
 pub trait PairTag{
@@ -26,8 +26,8 @@ impl SingleTag for Tag<'_>{
     fn get_tag(&self) -> String {
         self.variable.get_tag_name().to_owned()
     }
-    fn bind(&self,property: String,use_end_slash: bool) -> String{
-        let mut ret = String::from("<") + &self.variable.get_tag_name().to_owned() + &property;
+    fn bind(&self,use_end_slash: bool) -> String{
+        let mut ret = String::from("<") + &self.variable.get_tag_name().to_owned() + &self.variable.get_properties();
         if use_end_slash{
             ret = ret + &String::from("/>")
         }else{
@@ -39,7 +39,7 @@ impl SingleTag for Tag<'_>{
 
 impl PairTag for Tag<'_>{
     fn get_start_tag(&self)->String{
-        String::from("<") + &self.variable.get_tag_name().to_owned() + &String::from(">")
+        String::from("<") + &self.variable.get_tag_name().to_owned() + &self.variable.get_properties() + &String::from(">")
     }
     fn get_end_tag(&self)->String{
         String::from("</")+ &self.variable.get_tag_name().to_owned() + &String::from(">")
@@ -72,29 +72,28 @@ impl TagName<'_>{
             TagName::OL(_) => "ol",
         }
     }
-    fn get_properties(&self) -> &str{
+    fn get_properties(&self) -> String{
         match self{
-            TagName::Html(_) => &Properties::get_properties(&self::HtmlProperties{ html_properties: todo!(), global_properties: todo!() }),
-            TagName::Head(_) => todo!(),
-            TagName::Meta(_) => todo!(),
-            TagName::Body(_) => todo!(),
-            TagName::Title(_) => todo!(),
-            TagName::Div(_) => todo!(),
-            TagName::P(_) => todo!(),
-            TagName::BR(_) => todo!(),
-            TagName::Table(_) => todo!(),
-            TagName::TBody(_) => todo!(),
-            TagName::THead(_) => todo!(),
-            TagName::TFoot(_) => todo!(),
-            TagName::TH(_) => todo!(),
-            TagName::TD(_) => todo!(),
-            TagName::TR(_) => todo!(),
-            TagName::LI(_) => todo!(),
-            TagName::UL(_) => todo!(),
-            TagName::OL(_) => todo!(),
+            TagName::Html(properties) => Properties::get_properties(properties),
+            TagName::Head(properties) => Properties::get_properties(properties),
+            TagName::Meta(properties) => Properties::get_properties(properties),
+            TagName::Body(properties) => Properties::get_properties(properties),
+            TagName::Title(properties) => Properties::get_properties(properties),
+            TagName::Div(properties) => Properties::get_properties(properties),
+            TagName::P(properties) => Properties::get_properties(properties),
+            TagName::BR(properties) => Properties::get_properties(properties),
+            TagName::Table(properties) => Properties::get_properties(properties),
+            TagName::TBody(properties) => Properties::get_properties(properties),
+            TagName::THead(properties) => Properties::get_properties(properties),
+            TagName::TFoot(properties) => Properties::get_properties(properties),
+            TagName::TH(properties) => Properties::get_properties(properties),
+            TagName::TD(properties) => Properties::get_properties(properties),
+            TagName::TR(properties) => Properties::get_properties(properties),
+            TagName::LI(properties) => Properties::get_properties(properties),
+            TagName::UL(properties) => Properties::get_properties(properties),
+            TagName::OL(properties) => Properties::get_properties(properties),
         }
     }
-
 }
 pub enum TagName<'a>{
     Html(HtmlProperties<'a>),
