@@ -124,10 +124,10 @@ impl Properties for HtmlProperties<'_>{
     fn get_properties(&self) -> String{
         let mut res = "".to_owned();
         for (key,value) in &self.html_properties{
-            res += &(" ".to_owned() + key.as_str() + value);
+            res += &(" ".to_owned() + key.as_str() + &"=".to_owned() + value);
         }
         for (key,value) in &self.global_properties{
-            res += &(" ".to_owned() + key.as_str() + value);
+            res += &(" ".to_owned() + key.as_str() + &"=".to_owned() + value);
         }
         res
     }
@@ -141,7 +141,7 @@ impl Properties for HeadProperties<'_>{
     fn get_properties(&self) -> String {
         let mut res = "".to_owned();
         for (key,value) in &self.global_properties{
-            res += &(" ".to_owned() + key.as_str() + value);
+            res += &(" ".to_owned() + key.as_str() + &"=".to_owned() + value);
         }
         res
     }
@@ -156,10 +156,10 @@ impl Properties for MetaProperties<'_>{
     fn get_properties(&self) -> String {
         let mut res = "".to_owned();
         for (key,value) in &self.meta_properties{
-            res += &(" ".to_owned() + key.as_str() + value);
+            res += &(" ".to_owned() + key.as_str() + &"=".to_owned() + value);
         }
         for (key,value) in &self.global_properties{
-            res += &(" ".to_owned() + key.as_str() + value);
+            res += &(" ".to_owned() + key.as_str() + &"=".to_owned() + value);
         }
         res
     }
@@ -174,10 +174,10 @@ impl Properties for BodyProperties<'_>{
     fn get_properties(&self) -> String {
         let mut res = "".to_owned();
         for (key,value) in &self.body_properties{
-            res += &(" ".to_owned() + key.as_str() + value);
+            res += &(" ".to_owned() + key.as_str() + &"=".to_owned() + value);
         }
         for (key,value) in &self.global_properties{
-            res += &(" ".to_owned() + key.as_str() + value);
+            res += &(" ".to_owned() + key.as_str() + &"=".to_owned() + value);
         }
         res
     }
@@ -191,7 +191,7 @@ impl Properties for TitleProperties<'_>{
     fn get_properties(&self) -> String {
         let mut res = "".to_owned();
         for (key,value) in &self.global_properties{
-            res += &(" ".to_owned() + key.as_str() + value);
+            res += &(" ".to_owned() + key.as_str() + &"=".to_owned() + value);
         }
         res
     }
@@ -205,7 +205,7 @@ impl Properties for DivProperties<'_>{
     fn get_properties(&self) -> String {
         let mut res = "".to_owned();
         for (key,value) in &self.global_properties{
-            res += &(" ".to_owned() + key.as_str() + value);
+            res += &(" ".to_owned() + key.as_str() + &"=".to_owned() + value);
         }
         res
     }
@@ -218,7 +218,7 @@ impl Properties for BRProperties<'_> {
     fn get_properties(&self) -> String {
         let mut res = "".to_owned();
         for (key,value) in &self.global_properties{
-            res += &(" ".to_owned() + key.as_str() + value);
+            res += &(" ".to_owned() + key.as_str() + &"=".to_owned() + value);
         }
         res
     }
@@ -232,7 +232,7 @@ impl Properties for PProperties<'_> {
     fn get_properties(&self) -> String {
         let mut res = "".to_owned();
         for (key,value) in &self.global_properties{
-            res += &(" ".to_owned() + key.as_str() + value);
+            res += &(" ".to_owned() + key.as_str() + &"=".to_owned() + value);
         }
         res
     }
@@ -245,7 +245,7 @@ impl Properties for TableProperties<'_> {
     fn get_properties(&self) -> String {
         let mut res = "".to_owned();
         for (key,value) in &self.global_properties{
-            res += &(" ".to_owned() + key.as_str() + value);
+            res += &(" ".to_owned() + key.as_str() + &"=".to_owned() + value);
         }
         res
     }
@@ -259,7 +259,7 @@ impl Properties for TBodyProperties<'_> {
     fn get_properties(&self) -> String {
         let mut res = "".to_owned();
         for (key,value) in &self.global_properties{
-            res += &(" ".to_owned() + key.as_str() + value);
+            res += &(" ".to_owned() + key.as_str() + &"=".to_owned() + value);
         }
         res
     }
@@ -272,7 +272,7 @@ impl Properties for THeadProperties<'_> {
     fn get_properties(&self) -> String {
         let mut res = "".to_owned();
         for (key,value) in &self.global_properties{
-            res += &(" ".to_owned() + key.as_str() + value);
+            res += &(" ".to_owned() + key.as_str() + &"=".to_owned() + value);
         }
         res
     }
@@ -286,7 +286,7 @@ impl Properties for TFootProperties<'_> {
     fn get_properties(&self) -> String {
         let mut res = "".to_owned();
         for (key,value) in &self.global_properties{
-            res += &(" ".to_owned() + key.as_str() + value);
+            res += &(" ".to_owned() + key.as_str() + &"=".to_owned() + value);
         }
         res
     }
@@ -300,7 +300,7 @@ impl Properties for TRProperties<'_> {
     fn get_properties(&self) -> String {
         let mut res = "".to_owned();
         for (key,value) in &self.global_properties{
-            res += &(" ".to_owned() + key.as_str() + value);
+            res += &(" ".to_owned() + key.as_str() + &"=".to_owned() + value);
         }
         res
     }
@@ -314,10 +314,10 @@ impl Properties for THProperties<'_> {
     fn get_properties(&self) -> String {
         let mut res = "".to_owned();
         for (key,value) in &self.global_properties{
-            res += &(" ".to_owned() + key.as_str() + value);
+            res += &(" ".to_owned() + key.as_str() + &"=".to_owned() + value);
         }
         for (key,value) in &self.th_properties{
-            res += &(" ".to_owned() + key.as_str() + value);
+            res += &(" ".to_owned() + key.as_str() + &"=".to_owned() + value);
         }
         res
     }
@@ -332,10 +332,10 @@ impl Properties for TDProperties<'_> {
     fn get_properties(&self) -> String {
         let mut res = "".to_owned();
         for (key,value) in &self.global_properties{
-            res += &(" ".to_owned() + key.as_str() + value);
+            res += &(" ".to_owned() + key.as_str() + &"=".to_owned() + value);
         }
         for (key,value) in &self.td_properties{
-            res += &(" ".to_owned() + key.as_str() + value);
+            res += &(" ".to_owned() + key.as_str() + &"=".to_owned() + value);
         }
         res
     }
@@ -349,10 +349,10 @@ impl Properties for LIProperties<'_> {
     fn get_properties(&self) -> String {
         let mut res = "".to_owned();
         for (key,value) in &self.global_properties{
-            res += &(" ".to_owned() + key.as_str() + value);
+            res += &(" ".to_owned() + key.as_str() + &"=".to_owned() + value);
         }
         for (key,value) in &self.li_properties{
-            res += &(" ".to_owned() + key.as_str() + value);
+            res += &(" ".to_owned() + key.as_str() + &"=".to_owned() + value);
         }
         res
     }
@@ -365,7 +365,7 @@ impl Properties for ULProperties<'_> {
     fn get_properties(&self) -> String {
         let mut res = "".to_owned();
         for (key,value) in &self.global_properties{
-            res += &(" ".to_owned() + key.as_str() + value);
+            res += &(" ".to_owned() + key.as_str() + &"=".to_owned() + value);
         }
         res
     }
@@ -380,10 +380,10 @@ impl Properties for OLProperties<'_> {
     fn get_properties(&self) -> String {
         let mut res = "".to_owned();
         for (key,value) in &self.global_properties{
-            res += &(" ".to_owned() + key.as_str() + value);
+            res += &(" ".to_owned() + key.as_str() + &"=".to_owned() + value);
         }
         for (key,value) in &self.ol_properties{
-            res += &(" ".to_owned() + key.as_str() + value);
+            res += &(" ".to_owned() + key.as_str() + &"=".to_owned() + value);
         }
         res
     }

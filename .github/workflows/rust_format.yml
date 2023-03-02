@@ -33,11 +33,9 @@ jobs:
           DATE=`date +"%Y%m%d"`
           BRANCH_NAME="auto/$DATE"
           git checkout -b "$BRANCH_NAME"
-          git push origin "$BRANCH_NAME"
-          echo ::set-output name=branch_name::$BRANCH_NAME
-      - name: create pull request
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          BRANCH_NAME: ${{ steps.create_branch.outputs.branch_name }}
-        run: |
-          hub pull-request -m "auto format" -b main -h $BRANCH_NAME
+          git diff --quiet;nochange=$;
+            if [$nochange eq 1]
+              git push origin "$BRANCH_NAME"
+              hub pull-request -m "auto format" -b main -h $BRANCH_NAME
+            fi
+          
