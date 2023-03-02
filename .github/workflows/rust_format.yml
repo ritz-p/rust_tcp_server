@@ -33,9 +33,13 @@ jobs:
           DATE=`date +"%Y%m%d"`
           BRANCH_NAME="auto/$DATE"
           git checkout -b "$BRANCH_NAME"
-          git diff --quiet;nochange=$;
-          if [$nochange eq 1]; then
+          git diff --quiet;NOCHANGE=$;
+          if ! git diff --exit-code --quiet
+          then
+            git config user.name 'ritz-p'
+            git config user.email 'ritz-p@users.noreply.github.com'
+            git add .
+            git commit -m "Auto created at DATE"
             git push origin "$BRANCH_NAME"
             hub pull-request -m "auto format" -b main -h $BRANCH_NAME
           fi
-          
