@@ -34,7 +34,7 @@ jobs:
           BRANCH_NAME="auto/$DATE"
           git checkout -b "$BRANCH_NAME"
           git diff --quiet;nochange=$;
-          if [$nochange eq 1]
+          if [$nochange eq 1]; then
             git push origin "$BRANCH_NAME"
             hub pull-request -m "auto format" -b main -h $BRANCH_NAME
           fi
